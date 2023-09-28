@@ -1,0 +1,83 @@
+{
+  "template": {
+    "src": "file:///D:/Mitesh/Node/easy-event/templates/T1.aep",
+    "composition": "Comp 1",
+    "outputModule": "H.264 - Match Render Settings - 15 Mbps",
+    "outputExt": "mp4",
+    "settingsTemplate": "Best Settings"
+  },
+  "assets": [
+    {
+      "type": "data",
+      "layerName": "02.08.2023",
+      "value": "02.08.2023",
+      "property": "Source Text"
+    },
+    {
+      "type": "data",
+      "layerName": "Moran & Shimi",
+      "value": "Kretoss technology",
+      "property": "Source Text"
+    },
+    {
+      "type": "data",
+      "layerName": "YOU ARE INVITED TO OUR WEDDING",
+      "value": "YOU ARE INVITED TO OUR WEDDING",
+      "property": "Source Text"
+    },
+    {
+      "type": "data",
+      "layerName": "WEDNESDAY 2.8.2023",
+      "value": "WEDNESDAY 2.8.2023",
+      "property": "Source Text"
+    },
+    {
+      "type": "data",
+      "layerName": "19:30 Marriage",
+      "value": "19:30 Marriage",
+      "property": "Source Text"
+    },
+    {
+      "type": "data",
+      "layerName": "18:30 reception",
+      "value": "18:30 reception",
+      "property": "Source Text"
+    },
+    {
+      "type": "data",
+      "layerName": "BAIT AL AYAM",
+      "value": "BAIT AL AYAM",
+      "property": "Source Text"
+    },
+    {
+      "type": "data",
+      "layerName": "ARLOZOROV 10, TEL AVIV",
+      "value": "ARLOZOROV 10, TEL AVIV",
+      "property": "Source Text"
+    },
+    {
+      "type": "data",
+      "layerName": "SEE YOU THERE",
+      "value": "SEE YOU THERE",
+      "property": "Source Text"
+    },
+    {
+      "type": "data",
+      "layerName": "GROOM PARENTS SIGALIT AND YORAM COHEN",
+      "value": "GROOM PARENTS SIGALIT AND YORAM COHEN",
+      "property": "Source Text"
+    },
+    {
+      "type": "data",
+      "layerName": "BRIDE PARENTS LIORA AND OSHER LEVY",
+      "value": "BRIDE PARENTS LIORA AND OSHER LEVY",
+      "property": "Source Text"
+    },
+    {
+      "type": "data",
+      "layerName": "PLEASE DO NOT LATE Parking lot at the area",
+      "value": "PLEASE DO NOT LATE Parking lot at the area",
+      "property": "Source Text"
+    }
+  ]
+}
