@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(cors());
 
 // Use the route handlers
-app.use('/', (req,res)=> {
+app.get('/', (req,res)=> {
   res.send("🚀 running... 🚀")
 });
 app.use('/templates', templatesRoutes);
