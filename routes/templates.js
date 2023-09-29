@@ -55,30 +55,54 @@ router.get('/', async (req, res) => {
   }
 });
 
+// router.get('/:id', async (req, res) => {
+//   const folderPath = './jsons';
+//   const userId = req.params.id;
+//   const files = await fs.promises.readdir(folderPath);
+
+//   // Filter for MP4 files
+//   const jsonFile = files.filter((file) => file.endsWith('.json')).find(file => file === `${userId}.json`);
+//   new Promise(async () => {
+//     const filePath = `${folderPath}/${jsonFile}`;
+
+//     try {
+//       const data = await fs.promises.readFile(filePath, 'utf8');
+//       const jsonData = JSON.parse(data);
+
+//       console.log("🚀🚀🚀 ~ file: templates.js:79 ~ awaitPromise ~ jsonData:-", jsonData);
+//       return res.status(200).json({ status: 200, data: jsonData?.assets, massage: "this is your tamplates" });
+
+//     } catch (err) {
+//       // Handle read file error if needed
+//       return res.status(500).json({ status: 500, data: [], massage: "internal server error" });
+//     }
+//   });
+// });
 router.get('/:id', async (req, res) => {
   const folderPath = './jsons';
   const userId = req.params.id;
   const files = await fs.promises.readdir(folderPath);
 
-  // Filter for MP4 files
-  const jsonFile = files.filter((file) => file.endsWith('.json')).find(file => file === `${userId}.json`);
-  new Promise(async () => {
-    const filePath = `${folderPath}/${jsonFile}`;
-
-    try {
-      const data = await fs.promises.readFile(filePath, 'utf8');
-      const jsonData = JSON.parse(data);
-
-      console.log("🚀🚀🚀 ~ file: templates.js:79 ~ awaitPromise ~ jsonData:-", jsonData);
-      res.status(200).json({ status: 200, data: jsonData?.assets, massage: "this is your tamplates" });
-
-    } catch (err) {
-      // Handle read file error if needed
-      res.status(500).json({ status: 500, data: [], massage: "internal server error" });
+  try {
+    // Use a try-catch block to handle potential errors
+    const jsonFile = files.find((file) => file === `${userId}.json`);
+    if (!jsonFile) {
+      // If the JSON file doesn't exist, return a 404 response
+      return res.status(404).json({ status: 404, message: 'Not Found' });
     }
-  });
-});
 
+    const filePath = `${folderPath}/${jsonFile}`;
+    const data = await fs.promises.readFile(filePath, 'utf8');
+    const jsonData = JSON.parse(data);
+
+    console.log("🚀🚀🚀 ~ file: templates.js:79 ~ awaitPromise ~ jsonData:", jsonData);
+    res.status(200).json({ status: 200, data: jsonData?.assets, message: "This is your templates" });
+  } catch (err) {
+    // Handle read file error or JSON parsing error
+    console.error("Error:", err);
+    res.status(500).json({ status: 500, data: [], message: "Internal Server Error" });
+  }
+});
 router.post('/:id', async (req, res) => {
   const folderPath = './jsons';
   const userId = req.params.id;
@@ -142,7 +166,7 @@ router.post('/:id', async (req, res) => {
           try {
             const data = await fs.promises.readFile(`./results/${outputFileName}.mp4`);
             const base64Data = base64.fromByteArray(data);
-            res.status(200).json({ status: 200, data: { name: `${userId}.mp4`, fileData: base64Data, }, massage: `Video rendered successfully!` });
+            return res.status(200).json({ status: 200, data: { name: `${userId}.mp4`, fileData: base64Data, }, massage: `Video rendered successfully!` });
           } catch (err) {
             // Handle read file error if needed
             console.error("Error reading file:", err);
@@ -153,7 +177,7 @@ router.post('/:id', async (req, res) => {
 
     } catch (err) {
       // Handle read file error if needed
-      res.status(500).json({ status: 500, data: [], massage: "internal server error" });
+      return res.status(500).json({ status: 500, data: [], massage: "internal server error" });
     }
   });
 });
