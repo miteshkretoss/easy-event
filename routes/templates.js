@@ -46,15 +46,13 @@ router.get('/', async (req, res) => {
   const coustomedata = [];
 
   const folderPath = './template-output'; // Replace with the path to your folder
-  (async () => {
-    try {
-      const data = await readingDirectory(folderPath);
-      res.status(200).json({ status: 200, data: data, massage: "this is your tamplates" });
-    } catch (err) {
-      res.status(500).json({ status: 500, data: [], massage: "internal server error" });
-    }
-  })();
 
+  try {
+    const data = await readingDirectory(folderPath);
+    return res.status(200).json({ status: 200, data: data, massage: "this is your tamplates" });
+  } catch (err) {
+    return res.status(500).json({ status: 500, data: [], massage: "internal server error" });
+  }
 });
 
 router.get('/:id', async (req, res) => {
