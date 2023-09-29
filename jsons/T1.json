@@ -47,6 +47,7 @@
       "layerName": "19:30 Marriage",
       "value": "19:30 Marriage",
       "property": "Source Text",
+      "fontSize": 14,
       "screen":"2"
     },
     {
@@ -54,6 +55,7 @@
       "layerName": "18:30 reception",
       "value": "18:30 reception",
       "property": "Source Text",
+      "fontSize": 14,
       "screen":"2"
     },
     {

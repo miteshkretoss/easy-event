@@ -12,6 +12,9 @@ app.use(express.json());
 app.use(cors());
 
 // Use the route handlers
+app.use('/', (req,res)=> {
+  res.send("🚀 running... 🚀")
+});
 app.use('/templates', templatesRoutes);
 
 const PORT = process.env.PORT || 5000;
