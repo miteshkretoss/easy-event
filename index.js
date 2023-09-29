@@ -13,7 +13,7 @@ app.use(cors());
 
 // Use the route handlers
 app.get('/', (req,res)=> {
-  res.send("🚀 running... 🚀")
+  return res.send("🚀 running... 🚀")
 });
 app.use('/templates', templatesRoutes);
 
